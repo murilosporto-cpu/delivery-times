@@ -104,8 +104,8 @@
   .rep-head{display:flex;flex-wrap:wrap;align-items:center;gap:14px;background:linear-gradient(90deg,var(--blue),var(--blue-d));color:#fff;border-radius:12px;padding:16px 20px;margin-bottom:18px}
   .rep-title{font-size:19px;font-weight:700;display:flex;align-items:center;gap:8px}
   .rep-meta{font-size:12.5px;line-height:1.6;flex:1;opacity:.95}
-  .pdfbtn{background:#fff;color:var(--blue);border:0;padding:11px 18px;border-radius:9px;font-weight:700;font-size:14px;cursor:pointer}
-  .pdfbtn:hover{background:#eaf3f8}
+  .pdfbtn, .jpegbtn {background:#fff;color:var(--blue);border:0;padding:11px 18px;border-radius:9px;font-weight:700;font-size:14px;cursor:pointer}
+  .pdfbtn:hover, .jpegbtn:hover {background:#eaf3f8}
   .scores{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:6px}
   .score{border:1px solid var(--line);border-left:5px solid var(--muted);border-radius:10px;padding:13px 15px}
   .score.st-g{border-left-color:var(--green)} .score.st-a{border-left-color:var(--amber)} .score.st-r{border-left-color:var(--red)}
@@ -658,7 +658,7 @@ function viewDia(){
     card('Wait Time por dia','Meta < 5 min. Coluna Média.',metricTable('tbl-dia-wait','wait'),'tbl-dia-wait',legendMeta),
     card('Order Load Time por dia','Meta < 2:59 min. Coluna Média.',metricTable('tbl-dia-load','load'),'tbl-dia-load',legendMeta),
   ];
-  const btnExport = `<button class="pdfbtn no-print" style="margin-left:auto; display:flex; align-items:center; gap:6px" onclick="exportDiaToJPEG()">📷 Exportar JPEG</button>`;
+  const btnExport = `<button class="jpegbtn no-print" style="margin-left:auto; display:flex; align-items:center; gap:6px" onclick="exportDiaToJPEG()">📷 Exportar JPEG</button>`;
   const filtro=`<div class="card no-print"><div class="chips" style="display:flex; width:100%; align-items:center">${weekChips('dia')}${btnExport}</div></div>`;
   return filtro + `<div id="dia-export-area" style="background:var(--bg); padding:10px; margin:-10px; border-radius:12px;"><div class="grid2">${cards.join('')}</div></div>`;
 }
