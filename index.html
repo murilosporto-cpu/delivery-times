@@ -916,8 +916,19 @@ window.exportDiaToJPEG = function() {
   if(!target) return;
   const originalBkg = target.style.background;
   target.style.background = '#f4f7fa';
+  
+  const scrolls = target.querySelectorAll('.scroll');
+  scrolls.forEach(s => {
+    s.style.maxHeight = 'none';
+    s.style.overflow = 'visible';
+  });
+
   html2canvas(target, { scale: 2, backgroundColor: '#f4f7fa' }).then(canvas => {
     target.style.background = originalBkg;
+    scrolls.forEach(s => {
+      s.style.maxHeight = '';
+      s.style.overflow = '';
+    });
     const link = document.createElement('a');
     link.download = 'Controle-Entregas.jpeg';
     link.href = canvas.toDataURL('image/jpeg', 0.9);
